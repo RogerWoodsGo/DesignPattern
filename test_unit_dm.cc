@@ -3,7 +3,9 @@
 //#include "template.cc"
 //#include "facade.cc"
 //#include "adapter.cc"
-#include "observer.cc"
+//#include "observer.cc"
+//#include "factory.cc"
+#include "bridges.cc"
 
 int main(){
 //    Sigleton* sg = Sigleton::instance();
@@ -26,13 +28,24 @@ int main(){
   //inte->CallLib();
   //delete adp;
   //delete inte;
-  Observer1* ob1 = new Observer1();
-  Observer2* ob2 = new Observer2();
-  Target* ta = new Target();
-  ta->Register(ob1);
-  ta->Register(ob2);
-  ta->NotifyAll();
-  delete ob1;
-  delete ob2;
-  delete ta;
+//  Observer1* ob1 = new Observer1();
+//  Observer2* ob2 = new Observer2();
+//  Target* ta = new Target();
+//  ta->Register(ob1);
+//  ta->Register(ob2);
+//  ta->NotifyAll();
+//  delete ob1;
+//  delete ob2;
+//  delete ta;
+//    Factory* fa = new FactoryA();
+//    IProduct* pro = fa->CreateProduct();
+//    pro->Operate();
+//    delete fa;
+//    delete pro;
+    Abstraction* abc = new Abstraction(new ConcreteImp1());
+    abc->Operate();
+    AnotherAbstraction* aabc =  new AnotherAbstraction(new ConcreteImp2());
+    aabc->Operate();
+    delete abc;
+    delete aabc;
 }
